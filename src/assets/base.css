@@ -1,73 +1,125 @@
-/* color palette from <https://github.com/vuejs/theme> */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --background-color: #141d2f;
+  --primary-color: #0079ff;
+  --text-color-error: #f74646;
+  --app-width: auto;
+  --app-margin: 31px 24px;
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
-*,
-*::before,
-*::after {
+body * {
   box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
+  font-family: 'Space Mono', monospace;
+  transition: background-color 200ms linear;
+}
+
+body *::before,
+body *::after {
+  box-sizing: inherit;
 }
 
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
   font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  line-height: 25px;
+}
+
+button {
+  /* Clear button styles */
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+h1 {
+  font-size: 26px;
+  line-height: 38px;
+}
+h2 {
+  font-size: 22px;
+  line-height: 33px;
+}
+h3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+h4 {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--text-color-secondary);
+}
+
+/* THEME VARIABLES */
+
+.theme-light {
+  --background-color: #f6f8ff;
+  --background-color-secondary: #fefefe;
+  --text-color: #2b3442;
+  --text-color-secondary: #4b6a9b;
+  --text-color-auxiliary: #697c9a;
+  --text-switch-color-hover: #222731;
+  --box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+}
+
+.theme-dark {
+  --background-color: #141d2f;
+  --background-color-secondary: #1e2a47;
+  --text-color: #ffffff;
+  --text-color-secondary: #ffffff;
+  --text-color-auxiliary: #ffffff;
+  --text-switch-color-hover: #90a4d4;
+  --box-shadow: none;
+}
+
+/* Common/Shared classes */
+
+.attribution {
+  font-size: 11px;
+  color: var(--text-color-auxiliary);
+  margin-top: 20px;
+  padding: 10px 24px;
+  text-align: center;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* TABLET */
+
+@media (min-width: 573px) {
+  :root {
+    /* Variables for Tablets */
+    --app-width: 573px;
+  }
+  main {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  :root {
+    --app-width: 730px;
+  }
 }

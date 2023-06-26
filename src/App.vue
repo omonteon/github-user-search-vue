@@ -1,47 +1,70 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+// import React, { useState, useEffect, useRef } from "react";
+// import { getUser } from "../../api/user-client";
+// import ThemeSwitch from "../ThemeSwitch";
+// import SearchBar from "../SearchBar";
+// import GitHubProfile from "../GithubProfile";
+// import { INITIAL_USERNAME, THEME_BG_COLOR } from "../../constants";
+// import styles from "./App.module.css";
+import ThemeSwitch from './components/ThemeSwitch.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
   <main>
-    <TheWelcome />
+    <!-- <div className={`theme-${theme}`}> -->
+    <div class="theme-dark">
+      <div class="app">
+        <div class="app__header">
+          <h1>devfinder</h1>
+          <ThemeSwitch />
+          <!-- <ThemeSwitch theme={theme} toggleTheme={toggleTheme} /> -->
+        </div>
+        <!-- <SearchBar
+          onSearch={handleSearch}
+          error={error}
+          onTextChange={clearErrorMessage}
+        /> -->
+        <!-- {{loading ? "Loading..." : null}} -->
+        <!-- {{error || loading ? null : <GitHubProfile user={user} />}} -->
+        <!-- <div ref="{liveRegion}" class="sr-only" aria-live="polite"></div> -->
+      </div>
+      <div class="attribution">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Frontend Mentor</a
+        >. Coded by <a href="https://github.com/omonteon">Omar Monteon</a>.
+      </div>
+    </div>
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+@media (min-width: 573px) {
+  .app {
+    padding: 0;
+    margin: 0;
+  }
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.app {
+  width: var(--app-width);
+  margin: var(--app-margin);
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.app__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  margin-bottom: 36px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.app__header h1 {
+  margin: 0;
+  color: var(--text-color);
 }
 </style>
